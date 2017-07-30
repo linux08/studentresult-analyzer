@@ -179,71 +179,65 @@ public class tab3 extends javax.swing.JFrame {
 
     private void HOMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HOMEActionPerformed
         // TODO add your handling code here:
-         JFrame pp=new startpage();
-    
- 
+        JFrame pp = new startpage();
 
-      pp.setVisible(true);
-      this.dispose();
+        pp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_HOMEActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
-           try{ 
-       // String cgp=gp.getText();
-     //gps=Float.parseFloat(cgp);
-    try{
-       // gps=Float.parseFloat(jTextField5.getText());
-       // gps<=5.0; int idmatric;
-      float gps;
-                String name=names.getText();
-          int idmatric=Integer.parseInt(matrics.getText());
-       
-        //String surname=ages.getText();
-        String state=states.getText ();
-       
-    Connection   connection = null;
+
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-          
-            PreparedStatement s;
-            s=connection.prepareStatement("INSERT INTO students( idstudent,name ,state, gp,level, ages )"+"VALUES(?,?,?,?,?,?)");
-            
-                    
-            s.setString(2,names.getText());
-            s.setString(1,matrics.getText());
-             s.setString(3,ages.getText());
-              s.setString(4, (String) jComboBox1.getSelectedItem());
-               s.setString(5,states.getText());
-                s.setString(6,gp.getText());
-       s.executeUpdate();
-       
-            Statement   statement=(Statement) connection.createStatement();
-       JOptionPane.showMessageDialog(null, "data succesfully updated");
-        } catch (SQLException ex) {
-            Logger.getLogger(tab3.class.getName()).log(Level.SEVERE, null, ex);
-              JOptionPane.showMessageDialog(null, "data  not succesfully updated");
-        } catch (Exception ex) {
-            Logger.getLogger(tab3.class.getName()).log(Level.SEVERE, null, ex);
-                   JOptionPane.showMessageDialog(null, "data  not succesfully updated");
-        }
-    }
-    catch(Exception ex){
-               JOptionPane.showMessageDialog(null, "data  not succesfully updated");
-    ex.printStackTrace();
-    }
+       // String cgp=gp.getText();
+            //gps=Float.parseFloat(cgp);
+            try {
+       // gps=Float.parseFloat(jTextField5.getText());
+                // gps<=5.0; int idmatric;
+                float gps;
+                String name = names.getText();
+                int idmatric = Integer.parseInt(matrics.getText());
+
+                //String surname=ages.getText();
+                String state = states.getText();
+
+                Connection connection = null;
+                try {
+                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+
+                    PreparedStatement s;
+                    s = connection.prepareStatement("INSERT INTO students( idstudent,name ,state, gp,level, ages )" + "VALUES(?,?,?,?,?,?)");
+
+                    s.setString(2, names.getText());
+                    s.setString(1, matrics.getText());
+                    s.setString(3, ages.getText());
+                    s.setString(4, (String) jComboBox1.getSelectedItem());
+                    s.setString(5, states.getText());
+                    s.setString(6, gp.getText());
+                    s.executeUpdate();
+
+                    Statement statement = (Statement) connection.createStatement();
+                    JOptionPane.showMessageDialog(null, "data succesfully updated");
+                } catch (SQLException ex) {
+                    Logger.getLogger(tab3.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "data  not succesfully updated");
+                } catch (Exception ex) {
+                    Logger.getLogger(tab3.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "data  not succesfully updated");
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "data  not succesfully updated");
+                ex.printStackTrace();
+            }
       //  try {
             //result = statement.executeQuery("SELECT idstudent, name, surname, state, gp  FROM students");
-       // } catch (SQLException ex) {
-         //   Logger.getLogger(tab3.class.getName()).log(Level.SEVERE, null, ex);
+            // } catch (SQLException ex) {
+            //   Logger.getLogger(tab3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        catch(Exception ex){
-    ex.printStackTrace();
-    }
-    
-  
-                  
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void statesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statesActionPerformed

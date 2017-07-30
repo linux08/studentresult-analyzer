@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package database;
+
 import java.util.*;
 
 import com.mysql.jdbc.Statement;
@@ -35,7 +36,7 @@ public class tab2 extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(tab2.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
         initComponents();
     }
 
@@ -93,51 +94,44 @@ public class tab2 extends javax.swing.JFrame {
 
     private void SEARCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHActionPerformed
         // TODO add your handling code here:
-         String matricno=null;
-        
-       matricno=matricspace.getText();
-       int ip=Integer.parseInt(matricno);
-       
-         Connection   connection = null;
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-        
-  Statement sqlSta=(Statement) connection.createStatement();
-  
-   String bqs="SELECT *  FROM students WHERE idstudent = " + ip;
-   ResultSet rset =sqlSta.executeQuery(bqs);
-             if(rset.next()) {
-                 
-                         
-            String name=rset.getString(2);
-            String matric=rset.getString(1);
-            String ages=rset.getString(6);
-            String level=rset.getString(5);
-              String states=rset.getString(3);
-               String gp=rset.getString(4);
-             
-                 //sqlSta.executeUpdate(bqs);
-                 
-                   JOptionPane.showMessageDialog(tab2.this, String.format("the user is in this database"));
-      
-             }
-               
-      else{
-          
-          JOptionPane.showMessageDialog(tab2.this, String.format("invalid entry:not available in the database"));
-          
-}
+        String matricno = null;
 
+        matricno = matricspace.getText();
+        int ip = Integer.parseInt(matricno);
+
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+
+            Statement sqlSta = (Statement) connection.createStatement();
+
+            String bqs = "SELECT *  FROM students WHERE idstudent = " + ip;
+            ResultSet rset = sqlSta.executeQuery(bqs);
+            if (rset.next()) {
+
+                String name = rset.getString(2);
+                String matric = rset.getString(1);
+                String ages = rset.getString(6);
+                String level = rset.getString(5);
+                String states = rset.getString(3);
+                String gp = rset.getString(4);
+
+                 //sqlSta.executeUpdate(bqs);
+                JOptionPane.showMessageDialog(tab2.this, String.format("the user is in this database"));
+
+            } else {
+
+                JOptionPane.showMessageDialog(tab2.this, String.format("invalid entry:not available in the database"));
+
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(tab2.this, String.format("invalid matrino:not available in the database"));
+            ex.printStackTrace();
 
         }
-           
-      catch(Exception ex){
-              JOptionPane.showMessageDialog(tab2.this, String.format("invalid matrino:not available in the database"));
-          ex.printStackTrace();
-          
-}
        //     JOptionPane.showMessageDialog(tab2.this, String.format("you pressed :%s",
-       //          matricno));
+        //          matricno));
     }//GEN-LAST:event_SEARCHActionPerformed
 
     public static void main(String args[]) {
@@ -172,8 +166,8 @@ public class tab2 extends javax.swing.JFrame {
         });
     }
     connection tb = new connection();
-            
-         Connection   connect;
+
+    Connection connect;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SEARCH;

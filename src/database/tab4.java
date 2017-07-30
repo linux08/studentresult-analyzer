@@ -246,34 +246,34 @@ public class tab4 extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        
-        int j= jTable1.getSelectedRow();
-        TableModel md =jTable1.getModel();
-    jmatric.setText(md.getValueAt(j, 0).toString());
-    jname.setText(md.getValueAt(j, 1).toString());
-    jstate.setText(md.getValueAt(j, 2).toString());
-    jgp.setText(md.getValueAt(j, 3).toString());
-    jlevel.setText(md.getValueAt(j, 4).toString());
-    jage.setText(md.getValueAt(j, 5).toString());
+
+        int j = jTable1.getSelectedRow();
+        TableModel md = jTable1.getModel();
+        jmatric.setText(md.getValueAt(j, 0).toString());
+        jname.setText(md.getValueAt(j, 1).toString());
+        jstate.setText(md.getValueAt(j, 2).toString());
+        jgp.setText(md.getValueAt(j, 3).toString());
+        jlevel.setText(md.getValueAt(j, 4).toString());
+        jage.setText(md.getValueAt(j, 5).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void INSERTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INSERTActionPerformed
-      
+
         // TODO add your handling code here:
-        try{
-            Connection   connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-        String aa="INSERT INTO students( idstudent,name ,state, gp,level, ages )VALUES('"+jmatric.getText()+"','"+jname.getText()+"','"+jstate.getText()+"','"+jgp.getText()+"','"+jlevel.getText()+"','"+jage.getText()+"')";
-        Statement st = (Statement) connection.createStatement();
-        
-        st.executeUpdate(aa);
-        
-            DefaultTableModel md= (DefaultTableModel) jTable1.getModel();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+            String aa = "INSERT INTO students( idstudent,name ,state, gp,level, ages )VALUES('" + jmatric.getText() + "','" + jname.getText() + "','" + jstate.getText() + "','" + jgp.getText() + "','" + jlevel.getText() + "','" + jage.getText() + "')";
+            Statement st = (Statement) connection.createStatement();
+
+            st.executeUpdate(aa);
+
+            DefaultTableModel md = (DefaultTableModel) jTable1.getModel();
             md.setRowCount(0);
-        showjtable();
+            showjtable();
+        } catch (Exception ex) {
         }
-        catch(Exception ex){}
     }//GEN-LAST:event_INSERTActionPerformed
-    
+
     private void jmatricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmatricActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmatricActionPerformed
@@ -300,41 +300,37 @@ public class tab4 extends javax.swing.JFrame {
 
     private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
         // TODO add your handling code here:
-         try{
-            Connection   connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-       String ab=  "UPDATE students SET idstudent= "+jmatric.getText()+", name= '"+jname.getText()+"', state= '" +jstate.getText()+"', gp= '" +jgp.getText()+"', level= '"+ jlevel.getText()+"', ages= '"+jage.getText()+"'" +" WHERE idstudent = "+jmatric.getText();
-   // String ab=  "UPDATE studentinfos.students SET idstudent= "+jmatric.getText()+"', name= '"+jname.getText()+"', state= '" +jstate.getText()+"', gp= '" +jgp.getText()+"', level= '"+ jlevel.getText()+"', age= '"+jage.getText()+"'" +" WHERE idstudent = "+jmatric.getText();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+            String ab = "UPDATE students SET idstudent= " + jmatric.getText() + ", name= '" + jname.getText() + "', state= '" + jstate.getText() + "', gp= '" + jgp.getText() + "', level= '" + jlevel.getText() + "', ages= '" + jage.getText() + "'" + " WHERE idstudent = " + jmatric.getText();
+          
+            Statement st = (Statement) connection.createStatement();
 
-        Statement st = (Statement) connection.createStatement();
-        
-  
-        st.executeUpdate(ab);
-     
-           DefaultTableModel md= (DefaultTableModel) jTable1.getModel();
+            st.executeUpdate(ab);
+
+            DefaultTableModel md = (DefaultTableModel) jTable1.getModel();
             md.setRowCount(0);
-        showjtable();
+            showjtable();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println("mistake");
         }
-        catch(Exception ex){
-        ex.printStackTrace();
-        System.out.println("mistake");}
     }//GEN-LAST:event_UPDATEActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
         // TODO add your handling code here:
-         try{
-            Connection   connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-       String aa="DELETE FROM students  WHERE idstudent = "+jmatric.getText();;
-        Statement st = (Statement) connection.createStatement();
-        
-  
-        st.executeUpdate(aa);
-     
-           DefaultTableModel md= (DefaultTableModel) jTable1.getModel();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+            String aa = "DELETE FROM students  WHERE idstudent = " + jmatric.getText();;
+            Statement st = (Statement) connection.createStatement();
+
+            st.executeUpdate(aa);
+
+            DefaultTableModel md = (DefaultTableModel) jTable1.getModel();
             md.setRowCount(0);
-        showjtable();
-        }
-        catch(Exception ex){
-        ex.printStackTrace();
+            showjtable();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_DELETEActionPerformed
 
@@ -345,79 +341,77 @@ public class tab4 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
-    public ArrayList<user> getuserlist(){
+    public ArrayList<user> getuserlist() {
 
-    ArrayList<user> studentlist= new ArrayList<user>();
-    
-    Connection   connection = null;
+        ArrayList<user> studentlist = new ArrayList<user>();
+
+        Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-        String querys= "SELECT  *  FROM students ";
-        Statement st;
-        ResultSet rs;
-        st= (Statement) connection.createStatement();
-        rs=st.executeQuery(querys);
-        user us;
-        while(rs.next()){
- //     idstudent, name, state, gp, level, ages, idstudent, id      
-            us= new user(rs.getInt("idstudent"),rs.getString("name"),
-            rs.getString("state"),rs.getInt("gp"),rs.getString("level"),
-            rs.getInt("ages"));
-            studentlist.add(us);
-       //   System.out.println(studentlist)  ;
-        }
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+            String querys = "SELECT  *  FROM students ";
+            Statement st;
+            ResultSet rs;
+            st = (Statement) connection.createStatement();
+            rs = st.executeQuery(querys);
+            user us;
+            while (rs.next()) {
+                //     idstudent, name, state, gp, level, ages, idstudent, id      
+                us = new user(rs.getInt("idstudent"), rs.getString("name"),
+                        rs.getString("state"), rs.getInt("gp"), rs.getString("level"),
+                        rs.getInt("ages"));
+                studentlist.add(us);
+                //   System.out.println(studentlist)  ;
+            }
       //  studentlist.size();
-                
-        
-        }
-catch(Exception ex){
-        
-    ex.printStackTrace();
-}
-return studentlist;
-}
-    
-    
-     public int getsize(){
 
-    ArrayList<user> studentlist= new ArrayList<user>();
-    
-    Connection   connection = null;
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-        String querys= "SELECT  *  FROM students ";
-        Statement st;
-        ResultSet rs;
-        st= (Statement) connection.createStatement();
-        rs=st.executeQuery(querys);
-        user us;
-        while(rs.next()){
-       us= new user(rs.getInt("idstudent"),rs.getString("name"),
-            rs.getString("state"),rs.getInt("gp"),rs.getString("level"),
-            rs.getInt("ages"));
-            studentlist.add(us);
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+        }
+        return studentlist;
     }
-     }
-catch(Exception ex){
-        
-    ex.printStackTrace();
-}
-return studentlist.size();
-}
-    public void showjtable(){
-        ArrayList<user> ls =getuserlist();
-        DefaultTableModel mode =(DefaultTableModel) jTable1.getModel();
-        Object [] row = new Object[6];
-        for (int i = 0;i<ls.size();i++){
-      row[0]=ls.get(i).getid();
-       row[1]=ls.get(i).getname(); 
-         row[2]=ls.get(i).getstates();
-           row[3]=ls.get(i).getgp();
-             row[4]=ls.get(i).getlevel();
-               row[5]=ls.get(i).getages();
-               mode.addRow(row);
-    }}
+
+    public int getsize() {
+
+        ArrayList<user> studentlist = new ArrayList<user>();
+
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+            String querys = "SELECT  *  FROM students ";
+            Statement st;
+            ResultSet rs;
+            st = (Statement) connection.createStatement();
+            rs = st.executeQuery(querys);
+            user us;
+            while (rs.next()) {
+                us = new user(rs.getInt("idstudent"), rs.getString("name"),
+                        rs.getString("state"), rs.getInt("gp"), rs.getString("level"),
+                        rs.getInt("ages"));
+                studentlist.add(us);
+            }
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+        }
+        return studentlist.size();
+    }
+
+    public void showjtable() {
+        ArrayList<user> ls = getuserlist();
+        DefaultTableModel mode = (DefaultTableModel) jTable1.getModel();
+        Object[] row = new Object[6];
+        for (int i = 0; i < ls.size(); i++) {
+            row[0] = ls.get(i).getid();
+            row[1] = ls.get(i).getname();
+            row[2] = ls.get(i).getstates();
+            row[3] = ls.get(i).getgp();
+            row[4] = ls.get(i).getlevel();
+            row[5] = ls.get(i).getages();
+            mode.addRow(row);
+        }
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

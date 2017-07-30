@@ -7,31 +7,19 @@ package database;
 
 import javax.swing.JFrame;
 
-
 /**
  *
  * @author ABIMBOLA LINUX
  */
-public class Database  {
+public class Database {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)  {
-       // gparraylist plp= new gparraylist();
-        //plp.showjtable();
-     //    retrievingcgp oo = new  retrievingcgp();
-      //  tryp pl =new tryp();
-      //  pl.study();
-        // pl.display();
-       // oo.study();
-         //oo.showit();
-       //  oo.test();
-   //jointgraph pp = new  jointgraph ();
-     //  pp.setVisible(true);
-        startpage sp= new startpage();
-      
-       sp.setVisible(true);
+    public static void main(String[] args) {
+
+        startpage sp = new startpage();
+        sp.setVisible(true);
     }
-    
+
 }

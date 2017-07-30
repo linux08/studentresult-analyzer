@@ -10,42 +10,50 @@ package database;
  * @author ABIMBOLA LINUX
  */
 public class user {
+
     private int ids;
-    private String  state;
-    
+    private String state;
+
     private String name;
     private int gp;
     private String level;
     private int age;
-  //   idstudent, name, state, gp, level, ages, idstudent, id      
-    public user(int gps){
-        this.gp=gps;
+
+    public user(int gps) {
+        this.gp = gps;
     }
-    public user(int id,String names, String states,int gps,String levels,int ages)
-    {
-        this.ids=id;
-        this.state= states;
-        this.name=names;
-        this.gp=gps;
-        this.level=levels;
-        this.age= ages;
-        
+
+    public user(int id, String names, String states, int gps, String levels, int ages) {
+        this.ids = id;
+        this.state = states;
+        this.name = names;
+        this.gp = gps;
+        this.level = levels;
+        this.age = ages;
+
     }
-    public int getid(){
+
+    public int getid() {
         return ids;
-}
-    public String getstates(){
-        return state;}
-   
-    public String getname(){
+    }
+
+    public String getstates() {
+        return state;
+    }
+
+    public String getname() {
         return name;
-}
-    public float getgp(){
+    }
+
+    public float getgp() {
         return gp;
-}
-public String getlevel(){
-    return level;
-}public int getages(){
-    return age;
-}
+    }
+
+    public String getlevel() {
+        return level;
+    }
+
+    public int getages() {
+        return age;
+    }
 }

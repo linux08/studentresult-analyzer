@@ -70,59 +70,54 @@ public class gptab extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- String matricno=null;
-        
-       matricno=matricspace.getText();
-       int ip=Integer.parseInt(matricno);
-       
-         Connection   connection = null;
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-        
-  Statement sqlSta=(Statement) connection.createStatement();
-    // String bqs="SELECT *  FROM students WHERE idstudent = " + ip;
-   String bqs="SELECT *  FROM gp WHERE MATRIC = " + ip;
-   ResultSet rset =sqlSta.executeQuery(bqs);
-             if(rset.next()) {
-                 
-                     //    rset.get
-           // String MATRIC=rset.getString(1);
-            String FIRST=rset.getString(2);
-            String SECOND=rset.getString(3);
-            String THIRD=rset.getString(4);
-              String FOURTH=rset.getString(5);
-            
-                 
-                   JOptionPane.showMessageDialog(gptab.this, String.format("the user is in this database"));
-      
-             }
-               
-      else{
-          
-          JOptionPane.showMessageDialog(gptab.this, String.format("invalid entry:not available in the database"));
-          
-}
+        String matricno = null;
 
+        matricno = matricspace.getText();
+        int ip = Integer.parseInt(matricno);
+
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+
+            Statement sqlSta = (Statement) connection.createStatement();
+            // String bqs="SELECT *  FROM students WHERE idstudent = " + ip;
+            String bqs = "SELECT *  FROM gp WHERE MATRIC = " + ip;
+            ResultSet rset = sqlSta.executeQuery(bqs);
+            if (rset.next()) {
+
+                //    rset.get
+                // String MATRIC=rset.getString(1);
+                String FIRST = rset.getString(2);
+                String SECOND = rset.getString(3);
+                String THIRD = rset.getString(4);
+                String FOURTH = rset.getString(5);
+
+                JOptionPane.showMessageDialog(gptab.this, String.format("the user is in this database"));
+
+            } else {
+
+                JOptionPane.showMessageDialog(gptab.this, String.format("invalid entry:not available in the database"));
+
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(gptab.this, String.format("invalid matrino:not available in the database"));
+            ex.printStackTrace();
 
         }
-           
-      catch(Exception ex){
-              JOptionPane.showMessageDialog(gptab.this, String.format("invalid matrino:not available in the database"));
-          ex.printStackTrace();
-          
-}
-       //     JOptionPane.showMessageDialog(tab2.this, String.format("you pressed :%s",
-       //          matr        // TODO add your handling code here:
+        //     JOptionPane.showMessageDialog(tab2.this, String.format("you pressed :%s",
+        //          matr        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-public int dmatric(){
+    public int dmatric() {
 
- String matricno=null;
-        
-       matricno=matricspace.getText();
- 
-       int ip=Integer.parseInt(matricno);
-       return ip;
-}
+        String matricno = null;
+
+        matricno = matricspace.getText();
+
+        int ip = Integer.parseInt(matricno);
+        return ip;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -157,7 +152,6 @@ public int dmatric(){
             }
         });
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

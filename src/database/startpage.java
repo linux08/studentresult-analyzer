@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author ABIMBOLA LINUX
@@ -126,42 +127,37 @@ public class startpage extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // TODO add your handling code here:
- JFrame pp=new tab3();
-    
- 
+        JFrame pp = new tab3();
 
-      pp.setVisible(true);
-      this.dispose();
+        pp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_NEWActionPerformed
 
     private void OLDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OLDActionPerformed
         // TODO add your handling code here:
-         JFrame pp=new tab2();
-    
- 
+        JFrame pp = new tab2();
 
-      pp.setVisible(true);
-      this.dispose();
+        pp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_OLDActionPerformed
 
     private void DATAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DATAActionPerformed
-tab4  tb = new tab4();
+        tab4 tb = new tab4();
  // ArrayList<user> lst=tb.getuserlist();
-  //tablemode model =(tablemode)JTable_Display_User.getModel();
-tb.setVisible(true);
-this.dispose();
+        //tablemode model =(tablemode)JTable_Display_User.getModel();
+        tb.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_DATAActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        
- jointgraph pp = new  jointgraph ();
-       pp.setVisible(true);// TODO add your handling code here:
+        jointgraph pp = new jointgraph();
+        pp.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-gptab opl= new gptab();
- opl.setVisible(true);
+        gptab opl = new gptab();
+        opl.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 

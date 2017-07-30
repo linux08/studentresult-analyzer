@@ -8,14 +8,13 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
 public class connection {
-    public  Connection getConnection() throws Exception{
 
+    public Connection getConnection() throws Exception {
 
-  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos","root","david");
-        
-return connection;
-}
-    
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfos", "root", "david");
+
+        return connection;
+    }
+
 }
